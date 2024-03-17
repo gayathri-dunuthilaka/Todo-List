@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import TaskList from './Components/TaskList';
 import TaskDetail from './Components/TaskDetail';
 import TaskForm from './Components/TaskForm';
-import './styles.css'; 
+import './styles.css';
 import axios from 'axios';
+import { set } from 'mongoose';
 
 
 function App() {
@@ -11,23 +12,30 @@ function App() {
   const [selectedTask, setSelectedTask] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
-  // Sample tasks data
-  const sampleTasks = [
-    { id: 1, title: 'Complete React project', description: 'Work on the project for at least 2 hours daily.', dueDate: '2024-03-20', completed: false },
-    { id: 2, title: 'Prepare for meeting', description: 'Gather all required documents and notes.', dueDate: '2024-03-18', completed: false },
-    { id: 3, title: 'Buy groceries', description: 'Milk, eggs, bread, and fruits.', dueDate: '2024-03-15', completed: true },
-  ];
+  // // Sample tasks data
+  // const sampleTasks = [
+  //   { id: 1, title: 'Complete React project', description: 'Work on the project for at least 2 hours daily.', dueDate: '2024-03-20', completed: false },
+  //   { id: 2, title: 'Prepare for meeting', description: 'Gather all required documents and notes.', dueDate: '2024-03-18', completed: false },
+  //   { id: 3, title: 'Buy groceries', description: 'Milk, eggs, bread, and fruits.', dueDate: '2024-03-15', completed: true },
+  // ];
 
+  const getAllTasks = () => {
+    axios.get('http://localhost:3001/getAllTasks')
+    .then(result => {
+      setTasks(result.data)
+    })
+    .catch(error => console.log(error));
+  };
   useEffect(() => {
-    setTasks(sampleTasks);
+    getAllTasks();
   }, []);
 
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
     setShowForm(false);
-    axios.post('http://localhost:3001/add/', {task: newTask})
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+    axios.post('http://localhost:3001/add/', { task: newTask })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
   };
 
   const handleUpdateTask = (updatedTask) => {
@@ -39,16 +47,10 @@ function App() {
   };
 
   const handleDeleteTask = (id) => {
-    const updatedTasks = tasks.filter(task => task.id !== id);
-    setTasks(updatedTasks);
-    setSelectedTask(null);
-  };
-
-  const handleToggleStatus = (id) => {
-    const updatedTasks = tasks.map(task =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
+    axios.delete(`http://localhost:3001/delete/${id}`)
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+    setTasks(tasks.filter(task => task._id !== id));
   };
 
   const handleEditTask = (id) => {
@@ -67,6 +69,16 @@ function App() {
     setShowForm(false);
   };
 
+  const handleToggleCheck = (id, isChecked) => {
+    axios.put(`http://localhost:3001/toggleCompleted/${id}/${isChecked}`)
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+    setTasks(tasks.map(task => (task._id === id ? { ...task, completed: isChecked } : task)));
+  }
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
+  
   return (
     <div className="container">
       <h1 className="header title">Todo List</h1>
@@ -84,7 +96,7 @@ function App() {
             tasks={tasks}
             onEdit={handleEditTask}
             onDelete={handleDeleteTask}
-            onToggle={handleToggleStatus}
+            onToggle={handleToggleCheck}
             className="task-list"
           />
           <button onClick={handleCreateTask} className="button">Add Task</button>
@@ -97,7 +109,7 @@ function App() {
             task={selectedTask}
             onEdit={handleEditTask}
             onDelete={handleDeleteTask}
-            onToggle={handleToggleStatus}
+            onToggle={handleToggleCheck}
             className="task-item"
           />
         </div>
