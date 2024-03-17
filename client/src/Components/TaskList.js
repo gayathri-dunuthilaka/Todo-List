@@ -14,24 +14,26 @@ const TaskList = ({ tasks, onEdit, onDelete, onToggle }) => {
     onToggle(id, isChecked);
   };
 
+  const showDetails = (id) => {
+    console.log('showDetails', id);;
+  }
+
   return (
     <div className="container">
       <h1>Tasks</h1>
       <ul className="task-list">
-        {tasks.map(task => (
-          <li key={task._id} className="task-item">
-            <div className="task-info">
+        {tasks.map((task, index) => (
+          <li key={index} className="task-item" >
+            <div className="task-info"  >
               <input
                 type="checkbox"
-                checked={task.completed }
+                checked={task.completed}
                 onChange={(event) => {
                   const isChecked = event.target.checked;
                   handleToggleCheck(task._id, isChecked);
                 }}
               />
-
-
-              <strong className="task-title">{task.title}</strong>
+              <strong className="task-title" onClick={() => showDetails(task._id)} >{task.title}</strong>
               <p className="task-meta">Due Date: {task.dueDate}</p>
             </div>
             <div className="task-actions">

@@ -38,6 +38,25 @@ app.put('/toggleCompleted/:id/:completed', (req, res) => {
         .catch(error => res.json(error));
 });
 
+app.put('/update/:id', (req, res) => {
+    const id = req.params.id;
+    const { title, description, dueDate, completed } = req.body.task;
+    const isCompleted = completed === 'true';
+
+    TaskModel.findByIdAndUpdate({_id: id}, {
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        completed: isCompleted 
+    })
+    .then(result => {
+        location.reload();
+        res.json(result);
+    })
+    .catch(error => res.json(error));
+});
+
+    
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     TaskModel.findByIdAndDelete({_id: id})

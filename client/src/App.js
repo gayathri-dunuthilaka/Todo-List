@@ -21,10 +21,10 @@ function App() {
 
   const getAllTasks = () => {
     axios.get('http://localhost:3001/getAllTasks')
-    .then(result => {
-      setTasks(result.data)
-    })
-    .catch(error => console.log(error));
+      .then(result => {
+        setTasks(result.data)
+      })
+      .catch(error => console.log(error));
   };
   useEffect(() => {
     getAllTasks();
@@ -39,22 +39,27 @@ function App() {
   };
 
   const handleUpdateTask = (updatedTask) => {
-    const updatedTasks = tasks.map(task =>
-      task.id === updatedTask.id ? updatedTask : task
+    
+    axios.put(`http://localhost:3001/update/${updatedTask._id}`, { task: updatedTask })
+      .then(result => console.log(result))
+      .catch(error => console.log(error)); 
+      const updatedTasks = tasks.map(task =>
+      task._id === updatedTask._id ? updatedTask : task
     );
     setTasks(updatedTasks);
     setSelectedTask(null);
+    setShowForm(false);
   };
 
   const handleDeleteTask = (id) => {
     axios.delete(`http://localhost:3001/delete/${id}`)
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
     setTasks(tasks.filter(task => task._id !== id));
   };
 
   const handleEditTask = (id) => {
-    const task = tasks.find(task => task.id === id);
+    const task = tasks.find(task => task._id === id);
     setSelectedTask(task);
     setShowForm(true);
   };
@@ -71,14 +76,14 @@ function App() {
 
   const handleToggleCheck = (id, isChecked) => {
     axios.put(`http://localhost:3001/toggleCompleted/${id}/${isChecked}`)
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
     setTasks(tasks.map(task => (task._id === id ? { ...task, completed: isChecked } : task)));
   }
   useEffect(() => {
     console.log(tasks);
   }, [tasks]);
-  
+
   return (
     <div className="container">
       <h1 className="header title">Todo List</h1>
