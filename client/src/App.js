@@ -25,7 +25,7 @@ function App() {
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
     setShowForm(false);
-    axios.post('http://localhost:3001/add/tasks', {task: newTask})
+    axios.post('http://localhost:3001/add/', {task: newTask})
     .then(result => console.log(result))
     .catch(error => console.log(error));
   };
