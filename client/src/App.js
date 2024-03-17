@@ -3,6 +3,7 @@ import TaskList from './Components/TaskList';
 import TaskDetail from './Components/TaskDetail';
 import TaskForm from './Components/TaskForm';
 import './styles.css'; 
+import axios from 'axios';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
     setShowForm(false);
+    axios.post('http://localhost:3001/add/tasks', {task: newTask})
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
   };
 
   const handleUpdateTask = (updatedTask) => {
