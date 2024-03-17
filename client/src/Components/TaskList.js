@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 const TaskList = ({ tasks, onEdit, onDelete, onToggle }) => {
   const handleEditClick = (id) => {
@@ -15,7 +14,7 @@ const TaskList = ({ tasks, onEdit, onDelete, onToggle }) => {
   };
 
   const showDetails = (id) => {
-    console.log('showDetails', id);;
+    console.log(id);
   }
 
   return (

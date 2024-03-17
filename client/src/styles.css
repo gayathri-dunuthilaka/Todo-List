@@ -45,6 +45,13 @@ h1 {
   align-items: center;
 }
 
+
+.task-title:hover {
+  /* Existing styles */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .task-actions {
   /* Updated styles with margin-right */
   display: flex;
