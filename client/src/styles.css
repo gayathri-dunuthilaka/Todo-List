@@ -1,0 +1,212 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ddd296;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #02074f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #02074f;
+}
+
+/* Existing styles */
+
+.task-item {
+  /* Existing styles */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions {
+  /* Updated styles with margin-right */
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.task-button {
+  /* Existing styles */
+  padding: 8px 12px;
+  background-color: #282801;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-button:hover {
+  /* Existing styles */
+  background-color: #55550c;
+}
+
+.delete-button {
+  /* Existing styles */
+  background-color: #dc3545;
+}
+
+.delete-button:hover {
+  /* Existing styles */
+  background-color: #fc9fa8;
+}
+
+.task-detail {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.task-detail-title {
+  font-size: 2rem;
+  color: #333;
+}
+
+.task-detail-item {
+  margin-bottom: 10px;
+}
+
+.task-detail-label {
+  font-weight: bold;
+}
+
+.task-detail-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.task-detail-button {
+  padding: 10px 20px;
+  background-color: #282801;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-detail-button:hover {
+  background-color: #55550c;
+}
+
+.delete-button {
+  background-color: #c82333;
+}
+
+.delete-button:hover {
+  background-color: #fc9fa8;
+}
+
+.checkbox-label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.checkbox-label input {
+  margin-right: 5px;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #080000;
+}
+
+.form-label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-button {
+  padding: 10px 20px;
+  background-color: #282801;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.form-button:hover {
+  background-color: #55550c;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+}
+
+.cancel-button:hover {
+  background-color: #fc9fa8;
+}
