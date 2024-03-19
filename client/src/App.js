@@ -4,7 +4,7 @@ import TaskDetail from './Components/TaskDetail';
 import TaskForm from './Components/TaskForm';
 import './styles.css';
 import axios from 'axios';
-import { set } from 'mongoose';
+i
 
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
       .then(result => console.log(result))
       .catch(error => console.log(error)); 
       const updatedTasks = tasks.map(task =>
-      task._id === updatedTask._id ? updatedTask : task
+      task._id === updatedTask._id ? updatedTask : taskz
     );
     setTasks(updatedTasks);
     setSelectedTask(null);
