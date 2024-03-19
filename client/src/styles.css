@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-image: url("Stock.jpg");
+  background-color: #e79afb;
   margin: 0;
   padding: 20px;
 }
@@ -8,7 +9,7 @@ body {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #ddd296;
+  background: linear-gradient(90deg, #61eaff 0%, #090445 100%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 30px;
@@ -26,14 +27,14 @@ body {
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #03c2fd; 
 }
 
 
 h1 {
   text-align: center;
   font-size: 2.5rem;
-  color: #02074f;
+  color: #fdfdfe;
 }
 
 /* Existing styles */
@@ -43,6 +44,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+.task-title:hover {
+  /* Existing styles */
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .task-actions {
@@ -55,7 +63,7 @@ h1 {
 .task-button {
   /* Existing styles */
   padding: 8px 12px;
-  background-color: #282801;
+  background-color: #02074f;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -66,7 +74,7 @@ h1 {
 
 .task-button:hover {
   /* Existing styles */
-  background-color: #55550c;
+  background-color: #03c2fd; 
 }
 
 .delete-button {
@@ -107,7 +115,7 @@ h1 {
 
 .task-detail-button {
   padding: 10px 20px;
-  background-color: #282801;
+  background-color: #02074f;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -117,7 +125,7 @@ h1 {
 }
 
 .task-detail-button:hover {
-  background-color: #55550c;
+  background-color: #03c2fd; 
 }
 
 .delete-button {
@@ -189,7 +197,7 @@ h1 {
 
 .form-button {
   padding: 10px 20px;
-  background-color: #282801;
+  background-color: #02074f;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -200,7 +208,7 @@ h1 {
 }
 
 .form-button:hover {
-  background-color: #55550c;
+  background-color: #03c2fd; 
 }
 
 .cancel-button {
@@ -210,3 +218,4 @@ h1 {
 .cancel-button:hover {
   background-color: #fc9fa8;
 }
+
