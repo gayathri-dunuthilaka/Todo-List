@@ -36,6 +36,7 @@ const TaskDetail = ({ task, onEdit, onDelete, onToggle }) => {
         <label className="checkbox-label">
           <input
             type="checkbox"
+            className="mb-3"
             checked={task.completed}
             onChange={handleToggleCheck}
           />
