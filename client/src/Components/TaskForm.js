@@ -70,9 +70,9 @@ const TaskForm = ({ onSubmit, onCancel, initialTask }) => {
         </label>
         <div className="form-buttons">
           <button type="submit" className="form-button">
-            {initialTask.id ? 'Update Task' : 'Add Task'}
+            {initialTask._id ? 'Update Task' : 'Add Task'}
           </button>
-          {initialTask.id && (
+          {initialTask._id && (
             <button type="button" className="form-button cancel-button" onClick={handleCancel}>
               Cancel
             </button>
